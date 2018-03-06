@@ -19,6 +19,7 @@ public class Funcionario {
         this.cargo = cargo;
         this.valorHora = valorHora;
         this.qtdeHora = qtdeHora;
+        this.salario = calculaSalario(valorHora, qtdeHora);
     }
            
         
@@ -54,7 +55,9 @@ public class Funcionario {
         this.qtdeHora = qtdeHora;
     }
         
-        
+    public float calculaSalario(float valorHora, float qtdeHora){
+        return valorHora*qtdeHora;
+    }    
         
     
 }
