@@ -5,6 +5,7 @@
  */
 package br.com.satc.objeto;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -15,12 +16,33 @@ public class Dependente extends Pessoa{
     private Cliente responsavel;
     private Date dataNascimento;
     private int idade;
-    // Criar um método para calcular a idade com base na data de nascimento
+    
+    public static int calculaIdade(java.util.Date dataNasc) {
+
+    Calendar dataNascimento = Calendar.getInstance();  
+    dataNascimento.setTime(dataNasc); 
+    Calendar hoje = Calendar.getInstance();  
+
+    int idade = hoje.get(Calendar.YEAR) - dataNascimento.get(Calendar.YEAR); 
+
+    if (hoje.get(Calendar.MONTH) < dataNascimento.get(Calendar.MONTH)) {
+      idade--;  
+    } 
+    else 
+    { 
+        if (hoje.get(Calendar.MONTH) == dataNascimento.get(Calendar.MONTH) && hoje.get(Calendar.DAY_OF_MONTH) < dataNascimento.get(Calendar.DAY_OF_MONTH)) {
+            idade--; 
+        }
+    }
+
+    return idade;
+}
 
     public Dependente(Cliente responsavel, Date dataNascimento, String nome, String rg, String cpf) {
         super(nome, rg, cpf);
         this.responsavel = responsavel;
         this.dataNascimento = dataNascimento;
+        this.idade = this.calculaIdade(dataNascimento);
     }
 
     

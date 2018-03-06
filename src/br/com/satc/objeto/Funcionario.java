@@ -13,16 +13,14 @@ public class Funcionario {
         
         private String cargo;
         private float salario, valorHora, qtdeHora;
-        //implementar um método para calcular o salario com base na hora e no valor da hora
+        
 
     public Funcionario(String cargo, float valorHora, float qtdeHora) {
         this.cargo = cargo;
         this.valorHora = valorHora;
         this.qtdeHora = qtdeHora;
     }
-
-        
-        
+           
         
     public String getCargo() {
         return cargo;
